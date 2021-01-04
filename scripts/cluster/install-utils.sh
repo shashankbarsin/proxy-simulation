@@ -13,21 +13,21 @@ sudo apt-get install -y azure-cli
 
 if [[ -z "${CONNECTEDK8S_SOURCE}" ]];
 then
-  az extension add --name connectedk8s
+  az extension add --name connectedk8s --yes
 else
-  az extension add --source $CONNECTEDK8S_SOURCE
+  az extension add --source $CONNECTEDK8S_SOURCE --yes
 fi
 
 if [[ -z "${K8SCONFIGURATION_SOURCE}" ]];
 then
-  az extension add --name k8sconfiguration
+  az extension add --name k8sconfiguration --yes
 else
-  az extension add --source $K8SCONFIGURATION_SOURCE
+  az extension add --source $K8SCONFIGURATION_SOURCE --yes
 fi
 
 if [[ "${K8S_EXTENSION_SOURCE}" ]];
 then
-az extension add --source $K8S_EXTENSION_SOURCE
+az extension add --source $K8S_EXTENSION_SOURCE --yes
 fi
 
 # Install Helm 3

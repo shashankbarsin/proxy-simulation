@@ -1,0 +1,71 @@
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+    name: default-deny
+spec:
+  order: 20
+  selector: all()
+  types:
+  - Egress
+---
+
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-tcp-incluster
+spec:
+  selector: all()
+  order: 10
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    destination:
+      nets:
+      - 10.96.0.0/16
+      - 192.168.0.0/16
+      - 172.10.0.0/16
+      ports:
+      - 443
+      - 6443
+
+---
+
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-tcp-proxy
+spec:
+  selector: all()
+  order: 11
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: TCP
+    destination:
+      nets:
+      - <SQUID_NOAUTH_IP>
+      - <SQUID_BASIC_IP>
+      - <SQUID_CERT_IP>
+      ports:
+      - 3128
+
+---
+
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-udp 
+spec:
+  selector: all()
+  order: 12
+  types:
+  - Egress
+  egress:
+  - action: Allow
+    protocol: UDP
+    destination:
+      ports:
+      - 53

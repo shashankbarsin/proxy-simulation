@@ -25,7 +25,6 @@ else
   az extension add --source $K8SCONFIGURATION_SOURCE
 fi
 
-
 if [[ "${K8S_EXTENSION_SOURCE}" ]];
 then
 az extension add --source $K8S_EXTENSION_SOURCE

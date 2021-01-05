@@ -21,8 +21,8 @@ sudo mkdir /var/lib/squid/
 sudo chown squid:squid /var/lib/squid
 /usr/local/squid/libexec/security_file_certgen -c -s /var/lib/squid/ssl_db -M 4MB
 
-cp myCert.pem /home/azureuser/
-sudo chown azureuser:azureuser /home/azureuser/myCert.pem
+cp myCert.pem /home/azureuser/myCert.crt
+sudo chown azureuser:azureuser /home/azureuser/myCert.crt
 
 sudo chmod 777 /usr/local/squid/var/logs
 sudo /usr/local/squid/sbin/squid start

@@ -6,7 +6,8 @@ wget http://www.squid-cache.org/Versions/v4/squid-4.12.tar.gz
 tar xvzf squid-4.12.tar.gz
 cd squid-4.12
 ./configure --with-openssl  --enable-ssl-crtd
-sudo make && sudo make install && rm /usr/local/squid/etc/squid.conf && cp ../squid-cert.conf /usr/local/squid/etc/squid.conf
+sudo make && sudo make install
+sudo rm /usr/local/squid/etc/squid.conf && sudo cp ../squid-cert.conf /usr/local/squid/etc/squid.conf
 
 groupadd -g 123 squid
 useradd -g squid squid

@@ -30,6 +30,9 @@ then
 az extension add --source $K8S_EXTENSION_SOURCE --yes
 fi
 
+cp -R $HOME/.azure /home/azureuser
+sudo chown -R azureuser:azureuser /home/azureuser
+
 # Install Helm 3
 
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3

@@ -47,7 +47,6 @@ spec:
     destination:
       nets:
       - <SQUID_NOAUTH_IP>
-      - <SQUID_BASIC_IP>
       - <SQUID_CERT_IP>
       ports:
       - 3128

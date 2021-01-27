@@ -12,7 +12,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master- --kubeconfig /etc/kube
 wget https://raw.githubusercontent.com/shashankbarsin/proxy-simulation/main/manifests/simulation.yaml
 
 perl -i -pe "s/<SQUID_NOAUTH_IP>/$(echo -n $SQUID_NOAUTH_IP)/g" simulation.yaml
-# perl -i -pe "s/<SQUID_BASIC_IP>/$(echo -n $SQUID_BASIC_IP)/g" simulation.yaml
+perl -i -pe "s/<SQUID_BASIC_IP>/$(echo -n $SQUID_BASIC_IP)/g" simulation.yaml
 perl -i -pe "s/<SQUID_CERT_IP>/$(echo -n $SQUID_CERT_IP)/g" simulation.yaml
 
 kubectl apply -f simulation.yaml --kubeconfig /etc/kubernetes/admin.conf

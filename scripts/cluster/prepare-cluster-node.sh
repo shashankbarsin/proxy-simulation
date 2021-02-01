@@ -30,5 +30,12 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
+
+if [[ -z "${K8S_VERSION}" ]];
+then
+  sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
+else
+  sudo apt-get update && sudo apt-get install -y kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION
+fi
+
 sudo apt-mark hold kubelet kubeadm kubectl

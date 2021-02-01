@@ -6,6 +6,7 @@ export SQUID_CERT_IP=$3
 export CONNECTEDK8S_SOURCE=$4
 export K8S_EXTENSION_SOURCE=$5
 export K8SCONFIGURATION_SOURCE=$6
+export K8S_VERSION=$7
 
 source ./prepare-cluster-node.sh
 source ./bootstrap-master-node.sh

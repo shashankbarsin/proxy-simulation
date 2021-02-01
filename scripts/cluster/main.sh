@@ -8,6 +8,7 @@ export K8S_EXTENSION_SOURCE=$5
 export K8SCONFIGURATION_SOURCE=$6
 export K8S_VERSION=$7
 
+echo "$K8S_VERSION"
 source ./prepare-cluster-node.sh
 source ./bootstrap-master-node.sh
 source ./install-utils.sh

@@ -31,10 +31,16 @@ cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
+echo "$K8S_VERSION"
+
 if [[ -z "${K8S_VERSION}" ]];
 then
+  echo "k8sversion $K8S_VERSION"
+  echo "Install latest : sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl"
   sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
 else
+  echo "k8sversion $K8S_VERSION"
+  echo "Install latest : sudo apt-get update && sudo apt-get install -y kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION"
   sudo apt-get update && sudo apt-get install -y kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION
 fi
 

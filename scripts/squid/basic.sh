@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y libssl-dev pkg-config build-essential autoconf apache2-utils
 
 wget http://www.squid-cache.org/Versions/v4/squid-4.12.tar.gz 
 tar xvzf squid-4.12.tar.gz

@@ -29,9 +29,9 @@ spec:
       ports:
       - 443
       - 6443
-      - 10250
-      - 10255
-
+      - 8443
+      - 8080
+      - 8099
 ---
 
 apiVersion: crd.projectcalico.org/v1

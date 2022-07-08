@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml --kubeconfig /etc/kubernetes/admin.conf

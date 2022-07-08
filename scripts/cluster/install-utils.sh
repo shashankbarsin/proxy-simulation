@@ -11,24 +11,11 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO 
 sudo apt-get update
 sudo apt-get install -y azure-cli
 
-if [[ -z "${CONNECTEDK8S_SOURCE}" ]];
-then
-  az extension add --name connectedk8s --yes
-else
-  az extension add --source $CONNECTEDK8S_SOURCE --yes
-fi
+az extension add --name connectedk8s --yes
 
-if [[ -z "${K8SCONFIGURATION_SOURCE}" ]];
-then
-  az extension add --name k8sconfiguration --yes
-else
-  az extension add --source $K8SCONFIGURATION_SOURCE --yes
-fi
+az extension add --name k8sconfiguration --yes
 
-if [[ "${K8S_EXTENSION_SOURCE}" ]];
-then
-az extension add --source $K8S_EXTENSION_SOURCE --yes
-fi
+az extension add --name k8s-extension --yes
 
 cp -R $HOME/.azure /home/azureuser
 sudo chown -R azureuser:azureuser /home/azureuser

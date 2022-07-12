@@ -10,6 +10,7 @@ kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
 sleep 30
 
 kubectl taint nodes --all node-role.kubernetes.io/master- --kubeconfig /etc/kubernetes/admin.conf
+kubectl taint nodes --all node-role.kubernetes.io/control-plane- --kubeconfig /etc/kubernetes/admin.conf
 
 wget https://raw.githubusercontent.com/shashankbarsin/proxy-simulation/main/manifests/simulation.yaml
 
